@@ -1,38 +1,118 @@
-.App {
+/* Whole Page */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d9e1ed;
+  font-family: Arial, sans-serif;
+}
+
+/* Main Container */
+.app-container {
+  width: 500px;
+  margin: 50px auto;
+  background-color: rgb(248, 246, 246);
+  padding: 45px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.app-title {
   text-align: center;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+  font-size: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Add Patient Section */
+.add-patient {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.add-patient input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.add-patient input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Add Button */
+.add-btn {
+  background-color: #2ecc71;
   color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.add-btn:hover {
+  background-color: #27ae60;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Patient List */
+.patient-list {
+  list-style: none;
+  padding: 0;
+}
+
+.list-title {
+  color: #34495e;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.patient-count {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.patient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Empty Message */
+.empty-message {
+  text-align: center;
+  color: gray;
+  font-style: italic;
 }

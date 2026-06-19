@@ -1,70 +1,227 @@
-# Getting Started with Create React App
+# Patient List Management (Redux Basics)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##  Project Overview
 
-## Available Scripts
+This project is a simple Patient List Management application built using React and Redux.
 
-In the project directory, you can run:
+The application allows users to:
 
-### `npm start`
+- Add a patient
+- View all patients
+- Delete a patient
+- Manage global state using Redux
+- Access Redux state using useSelector
+- Dispatch Redux actions using useDispatch
+- Reuse Redux logic through a Custom Hook (usePatient)
+- Monitor state changes using Redux DevTools
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  Objective
 
-### `npm test`
+The purpose of this project is to understand the fundamentals of Redux state management and Custom Hooks in React.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Key concepts covered:
 
-### `npm run build`
+- Redux Store
+- Actions
+- Reducers
+- useSelector
+- useDispatch
+- Custom Hooks
+- Redux DevTools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##  Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- React Hooks
+  - useState
+- Redux
+  - createStore
+- React Redux
+  - Provider
+  - useSelector
+  - useDispatch
+- Custom Hook
+  - usePatient()
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##  Folder Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+src
+├── components
+│   ├── AddPatient.js
+│   └── PatientList.js
+│
+├── redux
+│   ├── actions.js
+│   ├── reducer.js
+│   └── store.js
+│
+├── hooks
+│   └── usePatient.js
+│
+├── App.js
+├── App.css
+└── index.js
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+##  Features
 
-## Learn More
+### 1️⃣ Add Patient
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Enter patient name in the input field.
+- Click the **Add Patient** button.
+- Patient is added to the Redux store.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2️⃣ View Patient List
 
-### Code Splitting
+- Displays all patients stored in Redux.
+- Updates automatically whenever state changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3️⃣ Delete Patient
 
-### Analyzing the Bundle Size
+- Each patient has a Delete button.
+- Clicking Delete removes the patient from Redux state.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4️⃣ Custom Hook
 
-### Making a Progressive Web App
+A reusable custom hook named `usePatient()` is created to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Access patients from Redux state
+- Add patients
+- Delete patients
 
-### Advanced Configuration
+This avoids repeating Redux logic across components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 5️⃣ Redux DevTools
 
-### Deployment
+Redux DevTools can be used to:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- View dispatched actions
+- Track state changes
+- Debug application behavior
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##  Application Flow
+
+```text
+User Enters Patient Name
+            ↓
+Click Add Patient
+            ↓
+Dispatch ADD_PATIENT Action
+            ↓
+Reducer Updates State
+            ↓
+Redux Store Updated
+            ↓
+useSelector Reads New State
+            ↓
+Component Re-renders
+            ↓
+Updated Patient List Displayed
+```
+
+---
+
+##  Redux State Structure
+
+```javascript
+{
+  patients: []
+}
+```
+
+---
+
+##  Actions
+
+### ADD_PATIENT
+
+Adds a new patient to the Redux store.
+
+```javascript
+{
+  type: "ADD_PATIENT",
+  payload: "John"
+}
+```
+
+### DELETE_PATIENT
+
+Removes a patient from the Redux store.
+
+```javascript
+{
+  type: "DELETE_PATIENT",
+  payload: 0
+}
+```
+
+---
+
+##  How to Run the Project
+
+### Install Dependencies
+
+```bash
+npm install
+npm install redux react-redux
+```
+
+### Start Application
+
+```bash
+npm start
+```
+
+### Open Browser
+
+```text
+http://localhost:3000
+```
+
+---
+
+##  Sample Output
+
+```text
+ Patient Management System
+
+[ Enter Patient Name ] [Add Patient]
+
+Patient List
+Total Patients : 3
+
+1. John      Delete
+2. David     Delete
+3. Kumar     Delete
+```
+
+---
+
+##  Learning Outcomes
+
+After completing this project, I learned:
+
+- How Redux works
+- How to create a Redux store
+- How to create actions and reducers
+- How to use useSelector and useDispatch
+- How to create and use Custom Hooks
+- How to manage global state efficiently
+- How to use Redux DevTools for debugging
+
+---
+
+## 👨‍💻 Author
+
+**Hemadharshini A**
