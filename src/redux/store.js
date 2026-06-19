@@ -1,10 +1,10 @@
-import { createStore } from "redux";
-import reducer from "./reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import patientReducer from "./patientSlice";
 
-const store = createStore(
-    reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = configureStore({
+    reducer: {
+        patients: patientReducer
+    }
+});
 
 export default store;

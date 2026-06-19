@@ -1,15 +1,15 @@
-# Patient List Management (Redux Basics)
+# Patient List Management (Redux Toolkit Basics)
 
 ##  Project Overview
 
-This project is a simple Patient List Management application built using React and Redux.
+This project is a simple Patient List Management application built using React and Redux Toolkit.
 
 The application allows users to:
 
 - Add a patient
 - View all patients
 - Delete a patient
-- Manage global state using Redux
+- Manage global state using Redux Toolkit
 - Access Redux state using useSelector
 - Dispatch Redux actions using useDispatch
 - Reuse Redux logic through a Custom Hook (usePatient)
@@ -19,11 +19,13 @@ The application allows users to:
 
 ##  Objective
 
-The purpose of this project is to understand the fundamentals of Redux state management and Custom Hooks in React.
+The purpose of this project is to understand the fundamentals of Redux Toolkit state management and Custom Hooks in React.
 
 ### Key concepts covered:
 
-- Redux Store
+- Redux Toolkit
+- Store Configuration
+- Slices
 - Actions
 - Reducers
 - useSelector
@@ -38,8 +40,9 @@ The purpose of this project is to understand the fundamentals of Redux state man
 - React
 - React Hooks
   - useState
-- Redux
-  - createStore
+- Redux Toolkit
+  - configureStore
+  - createSlice
 - React Redux
   - Provider
   - useSelector
@@ -58,8 +61,7 @@ src
 │   └── PatientList.js
 │
 ├── redux
-│   ├── actions.js
-│   ├── reducer.js
+│   ├── patientSlice.js
 │   └── store.js
 │
 ├── hooks
@@ -82,13 +84,13 @@ src
 
 ### 2️⃣ View Patient List
 
-- Displays all patients stored in Redux.
+- Displays all patients stored in Redux Toolkit state.
 - Updates automatically whenever state changes.
 
 ### 3️⃣ Delete Patient
 
 - Each patient has a Delete button.
-- Clicking Delete removes the patient from Redux state.
+- Clicking Delete removes the patient from Redux Toolkit state.
 
 ### 4️⃣ Custom Hook
 
@@ -117,11 +119,11 @@ User Enters Patient Name
             ↓
 Click Add Patient
             ↓
-Dispatch ADD_PATIENT Action
+Dispatch Redux Toolkit Action
             ↓
-Reducer Updates State
+Slice Reducer Updates State
             ↓
-Redux Store Updated
+Store Updated
             ↓
 useSelector Reads New State
             ↓
@@ -142,28 +144,22 @@ Updated Patient List Displayed
 
 ---
 
-##  Actions
+##  Slice Actions
 
-### ADD_PATIENT
+### addPatient
 
 Adds a new patient to the Redux store.
 
 ```javascript
-{
-  type: "ADD_PATIENT",
-  payload: "John"
-}
+dispatch(addPatient("John"));
 ```
 
-### DELETE_PATIENT
+### deletePatient
 
 Removes a patient from the Redux store.
 
 ```javascript
-{
-  type: "DELETE_PATIENT",
-  payload: 0
-}
+dispatch(deletePatient(index));
 ```
 
 ---
@@ -174,7 +170,7 @@ Removes a patient from the Redux store.
 
 ```bash
 npm install
-npm install redux react-redux
+npm install @reduxjs/toolkit react-redux
 ```
 
 ### Start Application
@@ -194,7 +190,7 @@ http://localhost:3000
 ##  Sample Output
 
 ```text
- Patient Management System
+Patient Management System
 
 [ Enter Patient Name ] [Add Patient]
 
@@ -212,9 +208,10 @@ Total Patients : 3
 
 After completing this project, I learned:
 
-- How Redux works
-- How to create a Redux store
-- How to create actions and reducers
+- How Redux Toolkit works
+- How to configure a Redux store
+- How to create and use slices
+- How to use createSlice and configureStore
 - How to use useSelector and useDispatch
 - How to create and use Custom Hooks
 - How to manage global state efficiently
@@ -222,6 +219,6 @@ After completing this project, I learned:
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Hemadharshini A**
